@@ -5,7 +5,6 @@ import fr.greffet.api_uiux.model.entity.Project;
 import fr.greffet.api_uiux.model.entity.User;
 import fr.greffet.api_uiux.service.ProjectService;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,7 +16,7 @@ import java.util.List;
 @RequestMapping("/project/")
 public class ProjectController {
 
-    private ProjectService projectService;
+    private final ProjectService projectService;
     public ProjectController(ProjectService projectService) {
         this.projectService = projectService;
     }

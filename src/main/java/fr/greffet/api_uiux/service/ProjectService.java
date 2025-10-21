@@ -11,21 +11,17 @@ import java.util.Optional;
 
 @Service
 public class ProjectService {
-    private ProjectRepository projectRepository;
-    private UserRepository userRepository;
+    private final ProjectRepository projectRepository;
 
-    public ProjectService(ProjectRepository projectRepository, UserRepository userRepository) {
+    public ProjectService(ProjectRepository projectRepository) {
         this.projectRepository = projectRepository;
-        this.userRepository = userRepository;
     }
 
     public List<Project> findAllByUser(User user) {
-        List<Project> projects = this.projectRepository.findAllByUser(user);
-        return projects;
+        return this.projectRepository.findAllByUser(user);
     }
 
     public Project createProject(Project project) {
-        Project newProject = projectRepository.save(project);
-        return newProject;
+        return projectRepository.save(project);
     }
 }
