@@ -29,6 +29,14 @@ public class ProjectController {
         return ResponseEntity.ok(projects);
     }
 
+    @GetMapping("/recents")
+    public ResponseEntity<List<Project>> findRecentProjectsByUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+        List<Project> projects = this.projectService.findRecentsByUser(user);
+        return ResponseEntity.ok(projects);
+    }
+
     @PostMapping("")
     public ResponseEntity<Project> createProject(@Valid @RequestBody ProjectDTO project) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

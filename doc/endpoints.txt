@@ -4,7 +4,8 @@
 /user (find)
 
 /projects (by user)
-/project (create)       //1
+/project (create)
+/get recents
 
 /ganttBoard (by project)
 /ganttBoard (create)

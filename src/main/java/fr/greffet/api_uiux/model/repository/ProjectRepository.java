@@ -13,4 +13,6 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     List<Project> findAllWithUsers();
 
     List<Project> findAllByUser(User user);
+
+    List<Project> findTop4ByUserOrderByCreatedAtDesc(User user);
 }

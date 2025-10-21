@@ -24,4 +24,8 @@ public class ProjectService {
     public Project createProject(Project project) {
         return projectRepository.save(project);
     }
+
+    public List<Project> findRecentsByUser(User user) {
+        return this.projectRepository.findTop4ByUserOrderByCreatedAtDesc(user);
+    }
 }
