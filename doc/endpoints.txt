@@ -1,0 +1,13 @@
+/auth/login
+/auth/register
+
+/user (find)
+
+/projects (by user)
+/project (create)
+
+/ganttBoard (by project)
+/ganttBoard (create)
+
+/ganttActivity (by board)
+/ganttActivity (create)
