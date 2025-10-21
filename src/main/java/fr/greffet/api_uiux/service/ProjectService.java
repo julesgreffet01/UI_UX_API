@@ -23,4 +23,9 @@ public class ProjectService {
         List<Project> projects = this.projectRepository.findAllByUser(user);
         return projects;
     }
+
+    public Project createProject(Project project) {
+        Project newProject = projectRepository.save(project);
+        return newProject;
+    }
 }
