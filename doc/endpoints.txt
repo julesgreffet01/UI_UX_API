@@ -11,3 +11,9 @@
 
 /ganttActivity (by board)
 /ganttActivity (create)
+
+/todoList (by project)
+/todoList (create)
+
+/todoTask (by list)
+/todoTask (create)
