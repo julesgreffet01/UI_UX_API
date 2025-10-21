@@ -36,6 +36,9 @@ public class AuthService {
     }
 
     public User register(UserDTO userDTO) {
+        if(userRepository.findByEmail(userDTO.getEmail()).isPresent()){
+            throw new RuntimeException("Email existente");
+        }
         User user = new User();
         user.setEmail(userDTO.getEmail().toLowerCase());
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));

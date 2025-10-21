@@ -1,6 +1,7 @@
 package fr.greffet.api_uiux.controller;
 
 import fr.greffet.api_uiux.model.entity.Project;
+import fr.greffet.api_uiux.model.entity.User;
 import fr.greffet.api_uiux.service.ProjectService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +25,8 @@ public class ProjectController {
     @GetMapping("")
     public ResponseEntity<List<Project>> findAllByUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = authentication.getName();
-        List<Project> projects = this.projectService.findAllByUser(email);
+        User user = (User) authentication.getPrincipal();
+        List<Project> projects = this.projectService.findAllByUser(user);
         return ResponseEntity.ok(projects);
     }
 }

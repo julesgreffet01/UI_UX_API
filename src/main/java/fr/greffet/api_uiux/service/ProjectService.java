@@ -19,9 +19,7 @@ public class ProjectService {
         this.userRepository = userRepository;
     }
 
-    public List<Project> findAllByUser(String email) {
-        Optional<User> optionalUser = this.userRepository.findByEmail(email);
-        User user = optionalUser.orElseThrow(() -> new RuntimeException("pas de user"));
+    public List<Project> findAllByUser(User user) {
         List<Project> projects = this.projectRepository.findAllByUser(user);
         return projects;
     }
