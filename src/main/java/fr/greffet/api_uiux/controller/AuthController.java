@@ -23,7 +23,7 @@ public class AuthController {
     }
 
     @PostMapping("login")
-    public ResponseEntity<String> authenticate(@RequestBody LoginDTO loginDTO) {
+    public ResponseEntity<String> authenticate(@Valid @RequestBody LoginDTO loginDTO) {
         String token  = authService.authenticate(loginDTO.getEmail(), loginDTO.getPassword());
         return ResponseEntity.ok(token);
     }
