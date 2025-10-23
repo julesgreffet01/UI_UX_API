@@ -29,6 +29,17 @@ public class ProjectController {
         return ResponseEntity.ok(projects);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<Project> findById(@PathVariable Long id) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+        Project project = this.projectService.findProject(id);
+        if(!project.getUser().getId().equals(user.getId())) {
+            throw new RuntimeException("pas les droits");
+        }
+        return ResponseEntity.ok(project);
+    }
+
     @GetMapping("/recents")
     public ResponseEntity<List<Project>> findRecentProjectsByUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

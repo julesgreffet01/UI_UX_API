@@ -25,6 +25,10 @@ public class ProjectService {
         return projectRepository.save(project);
     }
 
+    public Project findProject(Long projectId) {
+        return this.projectRepository.findById(projectId).orElseThrow(() -> new RuntimeException("pas de project"));
+    }
+
     public List<Project> findRecentsByUser(User user) {
         return this.projectRepository.findTop4ByUserOrderByCreatedAtDesc(user);
     }
