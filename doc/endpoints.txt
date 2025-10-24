@@ -9,10 +9,10 @@
 /get recents
 
 /ganttBoard (by project)
-/ganttBoard (create)    //la
+/ganttBoard (create)
 
 /ganttActivity (by board)
-/ganttActivity (create)
+/ganttActivity (create) //la
 
 /todoList (by project)
 /todoList (create)
